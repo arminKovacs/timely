@@ -1,0 +1,12 @@
+node_modules/
+dist/
+coverage/
+
+# Ignore build output
+out/
+
+# Ignore environment files
+.env
+
+# Ignore Prettier cache
+.prettiercache
