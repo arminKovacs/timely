@@ -1,21 +1,23 @@
+
 import { Routes } from '@angular/router';
 import { RoutePrefix } from './route-prefixes';
 import { LoginComponent } from './login/login.component';
+import { authGuard } from './auth.guard';
+import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
   {
     path: '',
-    children: [
-      {
-        path: RoutePrefix.Home,
-        pathMatch: 'full',
-        loadComponent: () => import('./home/home.component').then(m => m.HomeComponent),
-      },
-      { path: RoutePrefix.Login, component: LoginComponent },
-      {
-        path: '**',
-        redirectTo: '',
-      },
-    ],
+    canActivate: [authGuard],
+    component: HomeComponent,
+  },
+  {
+    path: RoutePrefix.Login,
+    canActivate: [authGuard],
+    component: LoginComponent,
+  },
+  {
+    path: '**',
+    redirectTo: '/login',
   },
 ];
