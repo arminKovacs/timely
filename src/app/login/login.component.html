@@ -14,11 +14,11 @@
         <mat-form-field>
             <mat-label>Enter your password</mat-label>
             <input matInput [type]="hide() ? 'password' : 'text'" />
-            <button mat-icon-button matSuffix (click)="showPassword($event)" [attr.aria-label]="'Hide password'"
+            <button matIconButton matSuffix (click)="showPassword($event)" [attr.aria-label]="'Hide password'"
                 [attr.aria-pressed]="hide()">
                 <mat-icon>{{hide() ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
         </mat-form-field>
     </p>
-    <button mat-raised-button>Login</button>
+    <button matButton="elevated">Login</button>
 </div>
